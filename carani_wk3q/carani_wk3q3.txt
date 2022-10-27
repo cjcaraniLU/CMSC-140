@@ -1,0 +1,14 @@
+1. x is 5 at Marker Q1
+2. x is 0 at Marker Q2
+3. No the variable x is not the same for Marker Q2 compared to Marker Q1. This is because Q2 x is in the function silly_program and has a different scope (local) compared to Q1 which has global scope. 
+4. The code will print:
+This is my program
+0
+1
+2
+2 is my favorite number
+0
+1
+2
+2 is my favorite number
+5. The only thing that I missed was the "None" that was printed at the end. This is probably becuase we dont return anything in the function yet want to print something once were done.

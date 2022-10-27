@@ -1,0 +1,2 @@
+Something that is easier now is concatenating strings and ints so that they all can be printed at the same time.
+What makes it easier is that I have a found a way to have strings and ints in the same print statement but do not have to cast them as different objects.

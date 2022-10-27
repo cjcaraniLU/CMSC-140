@@ -1,0 +1,1 @@
+Two ways we can make our random number guesser better is to make the number be random everytime so that us as programmers dont have to change the number manually. Another way we can improve our random number guesser is to allow the user to continue to keep guessing until they get the number correct.

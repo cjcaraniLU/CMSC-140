@@ -1,0 +1,3 @@
+I chose a while loop for question 2 because we dont know exactly how many times the loop will run.
+We could use a for loop but for that we would have to divide our number by our subtractor to see how many times our subtractor goes into our number.
+That process would just have an extra step added to it and is more work for the computer.
