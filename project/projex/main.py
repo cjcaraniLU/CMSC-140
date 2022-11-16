@@ -1,6 +1,5 @@
 import pygame as pg
 import sys
-import numpy as np
 
 pg.init()
 #constants
@@ -19,7 +18,7 @@ space = 55
 #colors
 black = (0, 0, 0)
 background = (200,150,120)
-circle_color = (255, 200, 0)
+piece_color = (255, 20, 100)
 
 screen = pg.display.set_mode((width, height)) #create screen
 pg.display.set_caption("Tic-Tac-Toe") #label top of pop up
@@ -53,12 +52,10 @@ def draw_xo():
         col = i%3
         row = i//3
         if board[i] == "o":
-            pg.draw.circle(screen, circle_color, (int(col * 200 + 100),int(row * 200 + 100)), circle_radius, circle_width)
+            pg.draw.circle(screen, piece_color, (int(col * 200 + 100),int(row * 200 + 100)), circle_radius, circle_width)
         elif board[i] == "x":
-            pg.draw.line(screen, circle_color, (col * 200 + space , row * 200 + 200 - space), (col * 200 + 200 - space, row * 200 +space), cross_width)
-            pg.draw.line(screen, circle_color, (col * 200 + space , row * 200 + space), (col * 200 + 200 - space, row * 200 + 200 - space), cross_width)
-            
-
+            pg.draw.line(screen, piece_color, (col * 200 + space , row * 200 + 200 - space), (col * 200 + 200 - space, row * 200 +space), cross_width)
+            pg.draw.line(screen, piece_color, (col * 200 + space , row * 200 + space), (col * 200 + 200 - space, row * 200 + 200 - space), cross_width)            
 
 player = "o"
 while True:
