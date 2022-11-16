@@ -4,7 +4,7 @@ import sys
 pg.init()
 #constants
 width = 600
-height = 600
+height = 800
 line_width = 10
 board_rows = 3
 board_column = 3
@@ -80,3 +80,5 @@ while True:
 
             draw_xo()
     pg.display.update()
+
+    #hi
