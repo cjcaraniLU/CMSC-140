@@ -2,16 +2,17 @@ import pygame as pg
 import sys
 
 pg.init()
+
 #constants
 width = 600
 height = 600
 line_width = 10
 board_rows = 3
 board_column = 3
+
 #markers
 circle_radius = 60
 circle_width = 15
-
 cross_width = 25
 space = 55
 
@@ -38,8 +39,6 @@ def is_full():
         if i == " ":
             return False
     return True
-
-
 
 def draw_lines(): #create lines
     pg.draw.line(screen, black, (0,200), (600, 200), line_width)
@@ -73,12 +72,12 @@ def check_board(player):
 
     #Check diagonals
     if(board[0] == board[4] == board[8] == player):
-        draw_r_t_l()
+        draw_l_to_r()
         return 1
 
 
     if(board[2] == board[4] == board[6] == player):
-        draw_l_t_r()
+        draw_r_to_l()
         return 1 
     return -1
 
