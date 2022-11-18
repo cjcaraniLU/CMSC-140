@@ -73,12 +73,11 @@ def check_board(player):
 
     #Check diagonals
     if(board[0] == board[4] == board[8] == player):
-        draw_r_t_l()
+        draw_l_to_r()
         return 1
 
-
     if(board[2] == board[4] == board[6] == player):
-        draw_l_t_r()
+        draw_r_to_l()
         return 1 
     return -1
 
