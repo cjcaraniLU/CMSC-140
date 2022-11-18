@@ -55,7 +55,33 @@ def draw_xo():
             pg.draw.circle(screen, piece_color, (int(col * 200 + 100),int(row * 200 + 100)), circle_radius, circle_width)
         elif board[i] == "x":
             pg.draw.line(screen, piece_color, (col * 200 + space , row * 200 + 200 - space), (col * 200 + 200 - space, row * 200 +space), cross_width)
-            pg.draw.line(screen, piece_color, (col * 200 + space , row * 200 + space), (col * 200 + 200 - space, row * 200 + 200 - space), cross_width)            
+            pg.draw.line(screen, piece_color, (col * 200 + space , row * 200 + space), (col * 200 + 200 - space, row * 200 + 200 - space), cross_width)        
+
+def check_board(player):
+    #Check horizontal
+    for row in range(board_rows):
+        if(board[row * 3] == board[row * 3 + 1] == [row * 3 + 2] == player):
+            draw_horizontal(row)
+            return 1 
+
+    #Check vertical
+    for column in range(board_column):
+        if(board[column] == board[column + 3] == board[column + 6] == player):
+            draw_vertical(column)
+            return 1
+
+    #Check diagonals
+    if(board[0] == board[4] == board[8] == player):
+        draw_r_t_l()
+        return 1
+
+
+    if(board[2] == board[4] == board[6] == player):
+        draw_l_t_r()
+        return 1 
+    return -1
+
+
 
 player = "o"
 while True:
