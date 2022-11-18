@@ -93,6 +93,9 @@ def draw_vertical(column):
 def draw_r_to_l():
     pg.draw.line(screen, win_line_color, (15, height - 15), (width - 15, 15), 15)
 
+def draw_l_to_r():
+    pg.draw.line(screen, win_line_color, (15,15), (width - 15, height - 15), 15)
+
 player = input("Who will go first x or o:")
 isWinner = -1
 while True:
