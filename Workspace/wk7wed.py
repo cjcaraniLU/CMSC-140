@@ -6,7 +6,7 @@ datapath = Path("data") / "records.txt"
 df = pd.read_csv(datapath, sep=",")
 print(df["W"][5])
 print(df.loc[5, "W"])
-print(df.iloc[5, 1])
+print(df.iloc[5, 1]) #row , col
 
 def ratio(row):
     w = row["W"]
@@ -22,4 +22,3 @@ print(df.loc[idx_max, "Team"])
 outfile = Path("data") / "baseball_edited.csv"
 
 df.to_csv(outfile, index = False)
-
