@@ -19,6 +19,7 @@ space = 55
 black = (0, 0, 0)
 background = (200,150,120)
 piece_color = (255, 20, 100)
+win_line_color = [255, 80, 30]
 
 screen = pg.display.set_mode((width, height)) #create screen
 pg.display.set_caption("Tic-Tac-Toe") #label top of pop up
@@ -81,14 +82,24 @@ def check_board(player):
         return 1 
     return -1
 
+def draw_horizontal(row):
+    position = row * 200 + 100
+    pg.draw.line(screen, win_line_color, (15, position), (width - 15, position), 15)
 
+def draw_vertical(column):
+    position = column * 200 + 100
+    pg.draw.line(screen, win_line_color, (position, 15), (position, height - 15), 15)
 
-player = "o"
+def draw_r_to_l():
+    pg.draw.line(screen, win_line_color, (15, height - 15), (width - 15, 15), 15)
+
+player = input("Who will go first x or o:")
+isWinner = -1
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             sys.exit()
-        if event.type == pg.MOUSEBUTTONDOWN:
+        if event.type == pg.MOUSEBUTTONDOWN and isWinner != 1:
             mouse_x = event.pos[0]
             mouse_y = event.pos[1]
 
@@ -99,9 +110,11 @@ while True:
             if is_available(row_click, col_click):
                 if player == "o":
                     mark_spot(row_click, col_click, "o")
+                    isWinner = check_board(player)
                     player = "x"
                 elif player == "x":
                     mark_spot(row_click, col_click, "x")
+                    isWinner == check_board(player)
                     player = "o"
 
             draw_xo()
