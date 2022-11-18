@@ -13,6 +13,7 @@ board_column = 3
 #markers
 circle_radius = 60
 circle_width = 15
+
 cross_width = 25
 space = 55
 
@@ -75,10 +76,10 @@ def check_board(player):
         draw_l_to_r()
         return 1
 
-
     if(board[2] == board[4] == board[6] == player):
         draw_r_to_l()
         return 1 
+
     return -1
 
 def draw_horizontal(row):
@@ -116,7 +117,7 @@ while True:
                     player = "x"
                 elif player == "x":
                     mark_spot(row_click, col_click, "x")
-                    isWinner == check_board(player)
+                    isWinner = check_board(player)
                     player = "o"
 
             draw_xo()
