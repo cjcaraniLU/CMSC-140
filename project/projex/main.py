@@ -46,6 +46,7 @@ def draw_lines(): #create lines
     pg.draw.line(screen, black, (0,400), (600, 400), line_width)
     pg.draw.line(screen, black, (200,0), (200, 600), line_width)
     pg.draw.line(screen, black, (400,0), (400, 600), line_width)
+
 draw_lines()
 
 def draw_xo():
@@ -61,7 +62,7 @@ def draw_xo():
 def check_board(player):
     #Check horizontal
     for row in range(board_rows):
-        if(board[row * 3] == board[row * 3 + 1] == [row * 3 + 2] == player):
+        if(board[row * 3] == board[(row * 3) + 1] == board[(row * 3) + 2] == player):
             draw_horizontal(row)
             return 1 
 
@@ -82,9 +83,15 @@ def check_board(player):
 
     return -1
 
+def restart():
+    screen.fill( background ) # clear off screen
+    draw_lines()
+    for i in range (len(board)):
+        board[i] = " "
+
 def draw_horizontal(row):
     position = row * 200 + 100
-    pg.draw.line(screen, win_line_color, (15, position), (width - 15, position), 15)
+    pg.draw.line(screen, win_line_color, (15, position), (width - 15, position), 15 )
 
 def draw_vertical(column):
     position = column * 200 + 100
@@ -96,6 +103,10 @@ def draw_r_to_l():
 def draw_l_to_r():
     pg.draw.line(screen, win_line_color, (15,15), (width - 15, height - 15), 15)
 
+#send message to terminal about how to play the game.
+print()
+print("Hello and welcome to Tic-Tac-Toe! To begin the game you will be asked which player will go first. Enter in either 'x' or 'o' and then press enter. The game window should pop up in your desktop window. At the end of the game press the 'r' key to restart the game.")
+print()
 player = input("Who will go first x or o:")
 isWinner = -1
 while True:
@@ -119,6 +130,11 @@ while True:
                     mark_spot(row_click, col_click, "x")
                     isWinner = check_board(player)
                     player = "o"
+                
+        if event.type == pg.KEYDOWN:
+            if event.key == pg.K_r:
+                restart()
+                isWinner = -1
 
-            draw_xo()
+        draw_xo()
     pg.display.update()
